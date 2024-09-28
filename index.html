@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      button {
+        background-color: #5114ea;
+        color: #000000;
+        padding: 10px 20px;
+        font-size: 24px;
+        font-family: Arial, Helvetica, sans-serif;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      h3 {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      #video-container {
+        display: none;
+      }
+    </style>
+</head>
+<body>
+    <h3>DO YOU LOVE ME</h3>
+    <button id="button">YES</button>
+    <div id="video-container">
+      <video width="100%" height="100%" controls loop id="myVideo">
+        <source src="video.mp4" type="video/mp4">
+      </video>
+      <audio id="myAudio" loop>
+        <source src="audio.mp3" type="audio/mp3">
+      </audio>
+    </div>
+    <script>
+      document.getElementById("button").addEventListener("click", function() {
+        document.getElementById("video-container").style.display = "block";
+        var video = document.getElementById("myVideo");
+        var audio = document.getElementById("myAudio");
+        video.play().catch(function(error) {
+          console.error("Error playing video:", error);
+        });
+        audio.play().catch(function(error) {
+          console.error("Error playing audio:", error);
+        });
+      });
+    </script>
+</body>
+</html>
